@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 
-export default function Header() {
+export default function HomeHeader() {
   return (
     <header className="fixed top-0 w-full border-b bg-white/60 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
