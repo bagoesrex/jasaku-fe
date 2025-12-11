@@ -2,6 +2,7 @@
 
 import DashboardHeader from "@/components/layout/header/dashboard-header";
 import AppSidebar from "@/components/layout/sidebar/app-sidebar";
+import AutoCloseSidebar from "@/components/layout/sidebar/auto-close-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useAuth } from "@/hooks/use-auth";
 import QueryProvider from "@/providers/query-provider";
@@ -31,6 +32,7 @@ export default function Layout({
   return (
     <QueryProvider>
       <SidebarProvider>
+        <AutoCloseSidebar />
         <AppSidebar />
         <main className="w-full">
           <DashboardHeader />
