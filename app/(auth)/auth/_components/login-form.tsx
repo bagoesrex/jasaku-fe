@@ -18,6 +18,7 @@ import { Loader2, LogIn } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/use-auth";
 
 const formSchema = z.object({
   email: z
@@ -33,6 +34,7 @@ const formSchema = z.object({
 export default function LoginForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const { refreshUser } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,6 +62,8 @@ export default function LoginForm() {
       }
 
       toast.success(data.message);
+
+      await refreshUser();
 
       setTimeout(() => {
         router.push("/dashboard");
